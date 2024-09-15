@@ -14,11 +14,11 @@ console.log(yearsOfBirth); //1994
 
 
 
-let age;
-console.log(age);
+// let age;
+// console.log(age);
 
-age = 22
-console.log(age);
+// age = 22
+// console.log(age);
 
 ///////////////////////////////////////////////////
 
@@ -165,6 +165,12 @@ console.log(exp.slice(0, 7));
 console.log(exp.slice(4, 10));
 console.log(exp.slice(0, exp.length));
 console.log(exp.slice(5, exp.length));
+///////////////////////////////
+const age = 50;
+console.log(age > 100 && age < 30);
+
+const gage = 20;
+console.log(gage < 10 || 30 > gage);
 
 
 
