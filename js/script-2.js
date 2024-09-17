@@ -516,25 +516,32 @@
 // Якщо витрачено менше 5000 кредитів - знижка 0 (базовий партнер)
 // Значення знижок кожного рівня зберігаються в однойменних константах BASE_DISCOUNT, BRONZE_DISCOUNT, SILVER_DISCOUNT і GOLD_DISCOUNT.
 
-function getDiscount(totalSpent) {
-  const BASE_DISCOUNT = 0;
-  const BRONZE_DISCOUNT = 0.02;
-  const SILVER_DISCOUNT = 0.05;
-  const GOLD_DISCOUNT = 0.1;
-  let discount;
-  // Change code below this line
-    
-  // Change code above this line
-  return discount;
-}
+// function getDiscount(totalSpent) {
+//   const BASE_DISCOUNT = 0;
+//   const BRONZE_DISCOUNT = 0.02;
+//   const SILVER_DISCOUNT = 0.05;
+//   const GOLD_DISCOUNT = 0.1;
+//   let discount;
+//     if (totalSpent >= 50000) {
+//       discount = GOLD_DISCOUNT
+//     } else if (20000 <= totalSpent && totalSpent < 50000) {
+//       discount = SILVER_DISCOUNT
+//     } else if (5000 <= totalSpent && totalSpent < 20000) {
+//       discount = BRONZE_DISCOUNT
+//     } else if(totalSpent < 5000){
+//       discount = BASE_DISCOUNT
+//   }
+//   console.log(discount);
+//   return discount;
+// }
 
-getDiscount(137000)
-getDiscount(46900)
-getDiscount(8250)
-getDiscount(1300)
-getDiscount(5000)
-getDiscount(20000)
-getDiscount(50000)
+// getDiscount(137000)
+// getDiscount(46900)
+// getDiscount(8250)
+// getDiscount(1300)
+// getDiscount(5000)
+// getDiscount(20000)
+// getDiscount(50000)
 
 // Виклик getDiscount(137000) повертає 0.1
 // Виклик getDiscount(46900) повертає 0.05
@@ -543,3 +550,326 @@ getDiscount(50000)
 // Виклик getDiscount(5000) повертає 0.02
 // Виклик getDiscount(20000) повертає 0.05
 // Виклик getDiscount(50000) повертає 0.1
+
+
+// Task-25
+// Виконай рефакторинг рішення задачі «Склад товарів», замінивши інструкцію if...else тернарним оператором.
+
+// function checkStorage(available, ordered) {
+//   let message;
+  // Change code below this line
+
+//  message = ordered > available ? "Not enough goods in stock!" : "The order is accepted, our manager will contact you";
+    
+//   if (ordered > available) {
+//     message = "Not enough goods in stock!";
+//   } else {
+//     message = "The order is accepted, our manager will contact you";
+//   }
+// console.log(message);
+//   return message;
+// }
+
+// checkStorage(100, 50)
+// checkStorage(100, 130)
+// checkStorage(200, 20)
+// checkStorage(200, 150)
+// checkStorage(150, 180)
+
+// Використаний тернарний оператор.
+// Виклик checkStorage(100, 50) повертає "The order is accepted, our manager will contact you"
+// Виклик checkStorage(100, 130) повертає "Not enough goods in stock!"
+// Виклик checkStorage(200, 20) повертає "The order is accepted, our manager will contact you"
+// Виклик checkStorage(200, 150) повертає "The order is accepted, our manager will contact you"
+// Виклик checkStorage(150, 180) повертає "Not enough goods in stock!"
+
+
+// Task-26
+// Функція checkPassword(password) порівнює переданий їй пароль (параметр password) зі збереженим паролем адміністратора (константа ADMIN_PASSWORD) і повертає рядок з повідомленням про результат.
+
+// Використовуючи тернарний оператор, доповни функцію таким чином, що:
+
+// Якщо значення password і ADMIN_PASSWORD збігаються, присвой змінній message рядок "Access is allowed".
+// В іншому випадку, присвой message рядок "Access denied, wrong password!".
+
+// function checkPassword(password) {
+//   const ADMIN_PASSWORD = "jqueryismyjam";
+//   let message;
+//   message = password === ADMIN_PASSWORD ? "Access is allowed" : "Access denied, wrong password!";
+//   console.log(message);
+//   return message;
+// }
+
+// checkPassword("jqueryismyjam")
+// checkPassword("angul4r1sl1f3")
+// checkPassword("r3actsux")
+
+// Використаний тернарний оператор
+// Виклик checkPassword("jqueryismyjam") повертає "Access is allowed"
+// Виклик checkPassword("angul4r1sl1f3") повертає "Access denied, wrong password!"
+// Виклик checkPassword("r3actsux") повертає "Access denied, wrong password!"
+
+
+
+// Task-27
+// Функція getSubscriptionPrice(type) отримує рядок з типом передплати користувача (параметр type), перевіряє її на збіг з трьома можливими типами щомісячної передплати та повертає ціну, що зберігається у змінній price.
+
+// Якщо значення параметра type - це рядок:
+
+// "starter" - ціна передплати 0 кредитів.
+// "professional" - ціна передплати 20 кредитів.
+// "organization" - ціна передплати 50 кредитів.
+// Спочатку в тілі функції була інструкція if...else, яка виглядала ось так.
+
+// if (type === "starter") {
+//   price = 0;
+// } else if (type === "professional") {
+//   price = 20;
+// } else if (type === "organization") {
+//   price = 50;
+// }
+// Після рефакторингу інструкція if..else була замінена на switch. Доповни код інструкції switch, щоб функція працювала правильно.
+
+// function getSubscriptionPrice(type) {
+//   let price;
+//  switch (type) {
+//     case "professional" :
+//       price = 20;
+//       break;
+
+//     case "organization" :
+//       price = 50;
+//       break;
+
+//     case "starter" :
+//       price = 0;
+//      break;
+//   }
+//   console.log(type);
+//   return price;
+// }
+
+// getSubscriptionPrice("professional")
+// getSubscriptionPrice("organization")
+// getSubscriptionPrice("starter")
+
+// Виклик getSubscriptionPrice("professional") повертає число 20
+// Виклик getSubscriptionPrice("organization") повертає число 50
+// Виклик getSubscriptionPrice("starter") повертає число 0
+
+
+
+// Task-28
+// Функція checkPassword(password) отримує пароль в параметр password, перевіряє його на збіг з паролем адміністратора у змінній ADMIN_PASSWORD і повертає повідомлення про результат порівняння, яке зберігається у змінній message.
+
+// Якщо значення параметра password:
+
+// дорівнює null, значить користувач скасував операцію і в message записується рядок "Canceled by user!".
+// збігається зі значенням ADMIN_PASSWORD, у змінну message присвоюється рядок "Welcome!".
+// не задовольняє жодну з попередніх умов, у змінну message записується рядок "Access denied, wrong password!".
+// Зроби рефакторинг коду, замінивши інструкцію if..else на switch, і не забудь про блок default (аналог else).
+
+// function checkPassword(password) {
+//   const ADMIN_PASSWORD = "jqueryismyjam";
+//   let message;
+  // Change code below this line
+
+  // if (password === null) {
+  //   message = "Canceled by user!";
+  // } else if (password === ADMIN_PASSWORD) {
+  //   message = "Welcome!";
+  // } else {
+  //   message = "Access denied, wrong password!";
+  // }
+
+
+//   switch (password) {
+//     case null :
+//       message = "Canceled by user!";
+//       break;
+//     case ADMIN_PASSWORD:
+//       message = "Welcome!";
+//     break
+//     default:
+//       message = "Access denied, wrong password!";
+//       break;
+//   }
+//   return message;
+// }
+
+// checkPassword("mangohackzor")
+// checkPassword(null)
+// checkPassword("polyhax")
+// checkPassword("jqueryismyjam")
+
+// Виклик checkPassword("mangohackzor") повертає "Access denied, wrong password!"
+// Виклик checkPassword(null) повертає "Canceled by user!"
+// Виклик checkPassword("polyhax") повертає "Access denied, wrong password!"
+// Виклик checkPassword("jqueryismyjam") повертає "Welcome!"
+
+
+
+// Task-29
+// Функція getShippingCost(country) повинна перевіряти можливість доставки товару в країну користувача (параметр country) і повертати повідомлення про результат, що зберігається у змінній message. Обов'язково використовуй інструкцію switch.
+
+// Формат рядка, що повертається "Shipping to <country> will cost <price> credits", де замість <country> і <price>, необхідно підставити відповідні значення.
+
+// Список країн і вартість доставки:
+
+// China - 100 кредитів
+// Chile - 250 кредитів
+// Australia - 170 кредитів
+// Jamaica - 120 кредитів
+// Зі списку видно, що доставка можлива не скрізь. Якщо зазначена країна відсутня у списку, то функція повинна повернути рядок "Sorry, there is no delivery to your country"
+
+// function getShippingCost(country) {
+//   let message;
+//   switch (country) {
+//     case "Australia" :
+//       message = "Shipping to Australia will cost 170 credits";
+//       break;
+//     case "China" :
+//       message = "Shipping to China will cost 100 credits";
+//       break;
+//     case "Chile"  :
+//       message = "Shipping to Chile will cost 250 credits";
+//       break;
+//     case "Jamaica"  :
+//       message = "Shipping to Jamaica will cost 120 credits";
+//       break;
+//     default:
+//       message = "Sorry, there is no delivery to your country";
+//       break;
+//   }
+//   return message;
+// }
+
+// getShippingCost("Australia")
+// getShippingCost("Germany")
+// getShippingCost("China")
+// getShippingCost("Chile")
+// getShippingCost("Jamaica")
+// getShippingCost("Sweden")
+
+// В тілі функції використана інструкція switch
+// Виклик getShippingCost("Australia") повертає "Shipping to Australia will cost 170 credits"
+// Виклик getShippingCost("Germany") повертає "Sorry, there is no delivery to your country"
+// Виклик getShippingCost("China") повертає "Shipping to China will cost 100 credits"
+// Виклик getShippingCost("Chile") повертає "Shipping to Chile will cost 250 credits"
+// Виклик getShippingCost("Jamaica") повертає "Shipping to Jamaica will cost 120 credits"
+// Виклик getShippingCost("Sweden") повертає "Sorry, there is no delivery to your country"
+
+
+
+// Task-30
+// Функція getNameLength(name) приймає ім'я (параметр name) і повертає рядок, в якому вказана його довжина. Доповни шаблонний рядок у змінній message довжиною рядка з параметра name.
+
+// function getNameLength(name) {
+//   const message = `Name ${name} is ${name.length} characters long`;
+//   return message;
+// }
+
+
+// getNameLength("Poly")
+// getNameLength("Harambe")
+// getNameLength("Billy")
+// getNameLength("Joe")
+
+
+// Виклик функції getNameLength("Poly") повертає "Name Poly is 4 characters long"
+// Виклик функції getNameLength("Harambe") повертає "Name Harambe is 6 characters long"
+// Виклик функції getNameLength("Billy") повертає "Name Billy is 5 characters long"
+// Виклик функції getNameLength("Joe") повертає "Name Joe is 3 characters long"
+
+
+
+// Task-31
+// Доповни код, присвоївши оголошеним змінним вирази звертання до відповідних елементів або властивостей рядка у змінній course.
+
+// courseTopicLength - довжина рядка.
+// firstElement - перший символ рядка.
+// lastElement - останній символ рядка.
+
+// const courseTopic = "JavaScript essentials";
+
+// const courseTopicLength = courseTopic.length;
+// console.log(courseTopicLength);
+// const firstElement = courseTopic[0];
+// console.log(firstElement);
+// const lastElement = courseTopic[courseTopic.length -1];
+// console.log(lastElement);
+
+// Change code above this line
+
+
+// Оголошена змінна courseTopic
+// Значення змінної courseTopic - це рядок "JavaScript essentials"
+// Оголошена змінна courseTopicLength
+// Значення змінної courseTopicLength - це число 21
+// Оголошена змінна firstElement
+// Значення змінної firstElement - це рядок "J"
+// Оголошена змінна lastElement
+// Значення змінної lastElement - це рядок "s"
+
+
+
+// Task-32
+// Функція getSubstring(string, length) приймає рядок і повертає підрядок від початку і до length символів. Вона оголошує два параметри, значення яких будуть задаватися під час її виклику:
+
+// string - оригінальний рядок
+// length - кількість символів з початку рядка для підрядка
+// Присвой змінній substring вираз створення підрядка довжиною length символів (від початку) з рядка string.
+
+// function getSubstring(string, length) {
+//   const substring = string.slice(0, length)
+//   console.log(substring);
+//   return substring;
+// }
+
+
+// getSubstring("Hello world", 3)
+// getSubstring("Hello world", 6)
+// getSubstring("Hello world", 8)
+// getSubstring("Hello world", 11)
+// getSubstring("Hello world", 0)
+
+// Виклик функції getSubstring("Hello world", 3) повертає "Hel"
+// Виклик функції getSubstring("Hello world", 6) повертає "Hello"
+// Виклик функції getSubstring("Hello world", 8) повертає "Hello wo"
+// Виклик функції getSubstring("Hello world", 11) повертає "Hello world"
+// Виклик функції getSubstring("Hello world", 0) повертає ""
+
+
+
+// Task-33
+// Функція formatMessage(message, maxLength) приймає рядок (параметр message) та перевіряє його довжину відповідно до заданої максимальної довжини (параметр maxLength).
+
+// Доповни код функції таким чином, що
+
+// Якщо довжина рядка дорівнює або менша за maxLength, то функція повертає початковий рядок без змін.
+// Якщо довжина перевищує maxLength, то функція обрізає рядок до maxLength символів, додає трикрапку "..." в кінці та повертає обрізану версію.
+
+// function formatMessage(message, maxLength) {
+//   let result;
+// if(message.length <= maxLength){
+//   result=message
+// }else{
+//   result=message.slice(0, maxLength)+'...'
+// }
+//   return result;
+// }
+
+// formatMessage("Curabitur ligula sapien", 16)
+// formatMessage("Curabitur ligula sapien", 23)
+// formatMessage("Vestibulum facilisis purus nec", 20)
+// formatMessage("Vestibulum facilisis purus nec", 30)
+// formatMessage("Nunc sed turpis a felis in nunc fringilla", 15)
+// formatMessage("Nunc sed turpis a felis in nunc fringilla", 41)
+
+// Виклик функції formatMessage("Curabitur ligula sapien", 16) повертає "Curabitur ligula..."
+// Виклик функції formatMessage("Curabitur ligula sapien", 23) повертає "Curabitur ligula sapien"
+// Виклик функції formatMessage("Vestibulum facilisis purus nec", 20) повертає "Vestibulum facilisis..."
+// Виклик функції formatMessage("Vestibulum facilisis purus nec", 30) повертає "Vestibulum facilisis purus nec"
+// Виклик функції formatMessage("Nunc sed turpis a felis in nunc fringilla", 15) повертає "Nunc sed turpis..."
+// Виклик функції formatMessage("Nunc sed turpis a felis in nunc fringilla", 41) повертає "Nunc sed turpis a felis in nunc fringilla"
+
