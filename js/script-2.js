@@ -873,3 +873,86 @@
 // Виклик функції formatMessage("Nunc sed turpis a felis in nunc fringilla", 15) повертає "Nunc sed turpis..."
 // Виклик функції formatMessage("Nunc sed turpis a felis in nunc fringilla", 41) повертає "Nunc sed turpis a felis in nunc fringilla"
 
+
+// Task-34
+// Функція normalizeInput(input) приймає рядок (параметр input) і повертає такий самий рядок, але в нижньому регістрі. Присвой змінній normalizedInput вираз створення рядка у нижньому регістрі з параметра input.
+
+// function normalizeInput(input) {
+//   const normalizedInput = input.toLowerCase();
+//   return normalizedInput;
+// }
+
+
+// normalizeInput("Hello world")
+// normalizeInput("This ISN'T SpaM")
+// normalizeInput("Big SALE")
+
+// Виклик функції normalizeInput("Hello world") повертає "hello world"
+// Виклик функції normalizeInput("This ISN'T SpaM") повертає "this isn't spam"
+// Виклик функції normalizeInput("Big SALE") повертає "big sale"
+
+
+// Task-35
+// Функція checkForName(fullname, name) приймає два параметри та повертає буль true або false - результат перевірки входження підрядка name у рядок fullname.
+
+// fullname - повне ім'я, що складається з двох слів (імені та прізвища), розділених пробілом.
+// name - ім'я для перевірки входження в повне ім'я.
+// Присвой змінній result вираз перевірки входження імені (параметр name), у повне ім'я (параметр fullname). Нехай функція чітко розрізняє регістр літер, тобто «Петя» і «петя» - для неї різні імена.
+
+
+// function checkForName(fullName, name) {
+//  const result = fullName.includes(name);
+//   console.log(result);
+  
+//   return result;
+// }
+
+// checkForName("Egor Kolbasov", "Egor")
+// checkForName("Egor Kolbasov", "egor")
+// checkForName("Egor Kolbasov", "egOr")
+// checkForName("Egor Kolbasov", "Zhenya")
+// checkForName("Vadim Nekrasov", "Vadim")
+// checkForName("Vadim Nekrasov", "vadim")
+// checkForName("Vadim Nekrasov", "Dima")
+
+
+// Виклик функції checkForName("Egor Kolbasov", "Egor") повертає true
+// Виклик функції checkForName("Egor Kolbasov", "egor") повертає false
+// Виклик функції checkForName("Egor Kolbasov", "egOr") повертає false
+// Виклик функції checkForName("Egor Kolbasov", "Zhenya") повертає false
+// Виклик функції checkForName("Vadim Nekrasov", "Vadim") повертає true
+// Виклик функції checkForName("Vadim Nekrasov", "vadim") повертає false
+// Виклик функції checkForName("Vadim Nekrasov", "Dima") повертає false
+
+
+// Task-36
+// Функція checkForSpam(message) приймає рядок (параметр message), перевіряє його на вміст заборонених слів spam і sale, і повертає результат перевірки. Слова в рядку параметра message можуть бути у довільному регістрі, наприклад SPAM або sAlE.
+
+// Якщо знайшли заборонене слово (spam або sale) то функція повертає буль true.
+// Якщо в рядку відсутні заборонені слова, функція повертає буль false.
+
+function checkForSpam(message) {
+  let result;
+  // Change code below this line
+    result = message.toLowerCase().includes("spam") || message.toLowerCase().includes("sale");
+    console.log(result);
+    
+  // Change code above this line
+  return result;
+}
+
+checkForSpam("Latest technology news")
+checkForSpam("JavaScript weekly newsletter")
+checkForSpam("Get best sale offers now!")
+checkForSpam("Amazing SalE, only tonight!")
+checkForSpam("Trust me, this is not a spam message")
+checkForSpam("Get rid of sPaM emails. Our book in on sale!")
+checkForSpam("[SPAM] How to earn fast money?")
+
+// Виклик функції checkForSpam("Latest technology news") повертає false
+// Виклик функції checkForSpam("JavaScript weekly newsletter")повертає false
+// Виклик функції checkForSpam("Get best sale offers now!") повертає true
+// Виклик функції checkForSpam("Amazing SalE, only tonight!") повертає true
+// Виклик функції checkForSpam("Trust me, this is not a spam message") повертає true
+// Виклик функції checkForSpam("Get rid of sPaM emails. Our book in on sale!") повертає true
+// Виклик функції checkForSpam("[SPAM] How to earn fast money?") повертає true
